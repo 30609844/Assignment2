@@ -43,7 +43,7 @@
           "encoding": {"tooltip": {"field": "note"}}
         },
         {
-          "data": {"url": "/data/share-of-adults-defined-as-obese.csv"},
+          "data": {"url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/share-of-adults-defined-as-obese.csv"},
           "transform": [
             {"filter": "datum.Year == year_select"},
             {
@@ -101,7 +101,7 @@
       "height": 300,
       "layer": [
         {
-          "data": {"url": "/data/obese-gdp-pop.csv"},
+          "data": {"url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/obese-gdp-pop.csv"},
           "transform": [
             {"filter": "datum.Year == year_select"},
             {"filter": "datum.Obesity != ''"}

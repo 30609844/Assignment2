@@ -4,7 +4,7 @@
   "width": 100,
   "height": 300,
   "data": {
-    "url": "/data/daily-caloric-supply-derived-from-carbohydrates-protein-and-fat.csv"
+    "url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/daily-caloric-supply-derived-from-carbohydrates-protein-and-fat.csv"
   },
   "params": [
     {
@@ -110,10 +110,11 @@
       "header": {"orient": "bottom"}
     },
     "y": {
-      "aggregate": "sum", 
-      "field": "value", 
+      "aggregate": "sum",
+      "field": "value",
       "title": "kcal per day",
-      "scale": {"domain": [0,2000]}},
+      "scale": {"domain": [0, 2000]}
+    },
     "x": {"field": "Entity", "axis": null},
     "color": {
       "title": "Country",
