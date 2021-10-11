@@ -43,14 +43,16 @@
           "encoding": {"tooltip": {"field": "note"}}
         },
         {
-          "data": {"url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/share-of-adults-defined-as-obese.csv"},
+          "data": {
+            "url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/share-of-adults-defined-as-obese.csv"
+          },
           "transform": [
             {"filter": "datum.Year == year_select"},
             {
               "lookup": "Code",
               "from": {
                 "data": {
-                  "url": "/js/ne_110m_admin_0_countries.topojson",
+                  "url": "https://raw.githubusercontent.com/30609844/HW-week9/main/js/ne_110m_admin_0_countries.topojson",
                   "format": {
                     "type": "topojson",
                     "feature": "ne_110m_admin_0_countries"
@@ -101,7 +103,9 @@
       "height": 300,
       "layer": [
         {
-          "data": {"url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/obese-gdp-pop.csv"},
+          "data": {
+            "url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/obese-gdp-pop.csv"
+          },
           "transform": [
             {"filter": "datum.Year == year_select"},
             {"filter": "datum.Obesity != ''"}
@@ -124,18 +128,21 @@
               "field": "Population",
               "type": "quantitative",
               "scale": {
-                "type": "threshold", 
-                "domain": [1000000, 10000000, 50000000, 100000000, 250000000, 500000000],
-                "range":  [10, 50, 150, 250, 350, 450, 550]
-                },
-                "legend": {"format": ".2s"}
-            },
-            
-            "tooltip": [
-              { "field": "Entity",
-                "title": "Country", 
-                "type": "nominal"
+                "type": "threshold",
+                "domain": [
+                  1000000,
+                  10000000,
+                  50000000,
+                  100000000,
+                  250000000,
+                  500000000
+                ],
+                "range": [10, 50, 150, 250, 350, 450, 550]
               },
+              "legend": {"format": ".2s"}
+            },
+            "tooltip": [
+              {"field": "Entity", "title": "Country", "type": "nominal"},
               {
                 "field": "Population",
                 "title": "Population",
@@ -155,7 +162,7 @@
                 "format": ","
               }
             ]
-          },          
+          },
           "mark": {"type": "circle"}
         }
       ]
