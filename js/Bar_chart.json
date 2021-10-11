@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "/data/daily-caloric-supply-derived-from-carbohydrates-protein-and-fat.csv"},
+  "params": [
+    {
+      "name": "year_select",
+      "value": "1990",
+      "bind": {
+        "input": "range",
+        "min": 1975,
+        "max": 2016,
+        "step": 1,
+        "name": "Year select"
+      }
+    },
+    {
+      "name": "Country 1",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels":[
+          "Show All",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Country selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.year == 2000"}
+  ],
+  "width": {"step": 12},
+  "mark": "bar",
+  "encoding": {
+    "column": {
+      "field": "age",
+      "type": "ordinal",
+      "spacing": 10,
+      "header": {"orient": "bottom"}
+    },
+    "y": {
+      
+    },
+    "x": {"field": "gender", "axis": null},
+    "color": {"field": "gender", "scale": {"range": ["#675193", "#ca8861"]}}
+  }
+}
