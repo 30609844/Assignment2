@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Urbanisation and obesity rate over time",
+    "data": {
+      "url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/obese-gdp-pop-urb.csv"
+    },
+    "params": [
+      {
+        "name": "Country_1",
+        "value": "United States",
+        "bind": {
+          "input": "select",
+          "options": [
+            "United States",
+            "United Kingdom",
+            "Germany",
+            "India",
+            "China",
+            "Japan",
+            "South Korea",
+            "Australia",
+            "Saudi Arabia",
+            "Philippines",
+            "Indonesia",
+            "Vietnam",
+            "Ethiopia"
+          ],
+          "labels": [
+            "USA",
+            "UK",
+            "Germany",
+            "India",
+            "China",
+            "Japan",
+            "South Korea",
+            "Australia",
+            "Saudi Arabia",
+            "Philippines",
+            "Indonesia",
+            "Vietnam",
+            "Ethiopia"
+          ],
+          "name": "Country selection: "
+        }
+      }
+    ],
+    "transform": [
+      {"filter": "datum.Entity == Country_1 "},
+      {"filter": "datum.Year >= 1975"},
+      {"filter": "datum.Year <= 2016"},
+      {"calculate": "datum.Obesity", "as": "Obesity rate"},
+      {"calculate": "datum.Urban", "as": "Urbanisation rate"}
+    ],
+    "repeat": {"layer": ["Obesity rate", "Urbanisation rate"]},
+    "spec": {
+      "mark": {"type": "line", "point": true},
+      "width": 400,
+      "height": 300,
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "quantitative",
+          "scale": {"domain": [1975, 2016]}
+        },
+        "y": {
+          "field": {"repeat": "layer"},
+          "type": "quantitative",
+          "title": "Percent"
+        },
+        "tooltip": [
+          {"field": "Entity", "title": "Country"},
+          {"field": "Year"},
+          {"field": {"repeat": "layer"}}
+        ],
+        "color": {
+          "datum": {"repeat": "layer"},
+          "title": "layer + ",
+          "type": "nominal"
+        }
+      }
+    }
+  }
