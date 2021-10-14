@@ -1,18 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>FIT3179 Data Visualisation: Assignment 2</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">  
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-
-
 </head>
-<body>
+<div class="page">
+
+  <!-- pure grid group -->
+   <div class="pure-g">
+     <div id = "top" class="pure-u-1-1">
+       <h1>World Obesity and its causes</h1>
+       <p>This page aims to investigate the causes for rising obesity rates around the world.</p>
+     </div>
+   </div>
+ <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <div id="vis1" class="vis-container"></div>
+    </div>
+  </div>
+<!-- end pure grid group -->
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <p>As can be seen above, the obesity rate of nations increases with the average wealth of its citizens. However, it is not the sole cause as there are relatively wealthy nations such as Japan and Singapore with a low obesity rate.</p>
+    </div>
+  </div>
+<!-- end pure grid group -->
+   <!-- pure grid group -->
+   <div class="pure-g">
+       <div class="pure-u-1-1">
+         <div id="vis2" class="description description-left"></div>
+         <div id="vis3" class="description description-right"></div>
+       </div>
+   </div>
+   <!-- end pure grid group -->
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <p>There are other factors that also decide a nations obesity. As can be seen above, nations which consume more fats tend to have higher obesity rates. This is further reinforced by the fact that as more fats are consumed over time, obesity rate tends to increase.</p>
+    <p>A nations urbanisation rate also seems to somewhat affect obesity rate. However, this trend is seen mainly in developing countries as obesity rates in Western countries such as the USA, UK, and Australia continue to grow despite constant urbanisation rates.</p>
+    </div>
+  </div>
+<!-- end pure grid group -->
+ 
+   <div class="pure-g">
+     <div class="pure-u-1-1 small-font">
+       <p>This visualisation is created by <a href="https://github.com/30609844" target="_blank">Kevin Liu</a>. The datasource is <a href="https://github.com/30609844/Assignment2/tree/main/data" target="_blank">here</href>.</p>
+     </div>
+   </div>
+ 
+
+ </div> <!-- end page -->
   
+<script type="text/javascript">
+ var specVis1 = "js/choropleth_map.vg.json";
+ var specVis2 = "js/Bar_chart.json";
+ var specVis3 = 'js/Line_chart.json';
+
+ vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
+   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+ }).catch(console.error);
+ 
+  vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+ }).catch(console.error);
+
+ vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+ }).catch(console.error);
+
+ vegaEmbed('#vis4', specVis2, {"actions": false}).then(function(result) {
+   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+ }).catch(console.error);
+</script>
+<!-- <body>
+
+ <div class="Intro">
+    <h1>World Obesity and its causes</h1>
+    <p>This page aims to investigate the causes for rising obesity rates around the world.</p>
+  </div>
+
 <div id="choropleth_map"></div>
 
 <script type="text/javascript">
@@ -36,5 +116,14 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
-</body>
+<div id="Line_Chart"></div>
+
+<script type="text/javascript">
+
+  var spec2 = "js/Line_chart.json";
+  vegaEmbed('#Line_Chart', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body> -->
 </html>
