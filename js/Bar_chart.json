@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Comparison of diet composition between 2 countries",
+  
   "width": 95,
-  "height": 300,
+  "height": 305,
   "data": {
     "url": "https://raw.githubusercontent.com/30609844/Assignment2/main/data/daily-caloric-supply-derived-from-carbohydrates-protein-and-fat.csv"
   },
