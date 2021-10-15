@@ -54,7 +54,7 @@
     "repeat": {"layer": ["Obesity rate", "Urbanisation rate"]},
     "spec": {
       "mark": {"type": "line", "point": true},
-      "width": 400,
+      "width":  500,
       "height": 300,
       "encoding": {
         "x": {
@@ -75,7 +75,10 @@
         "color": {
           "datum": {"repeat": "layer"},
           "title": "layer + ",
-          "type": "nominal"
+          "type": "nominal",
+          "legend": {
+            "orient": "top"
+          }
         }
       }
     }

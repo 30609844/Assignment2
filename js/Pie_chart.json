@@ -1,0 +1,225 @@
+{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":"Comparison of diet composition between 2 countries",
+    "params":[
+       {
+          "name":"year_select",
+          "value":"1990",
+          "bind":{
+             "input":"range",
+             "min":1975,
+             "max":2013,
+             "step":1,
+             "name":"Year select"
+          }
+       },
+       {
+          "name":"Country_1",
+          "value":"United States",
+          "bind":{
+             "input":"select",
+             "options":[
+                "United States",
+                "United Kingdom",
+                "Germany",
+                "India",
+                "China",
+                "Japan",
+                "South Korea",
+                "Australia",
+                "Saudi Arabia",
+                "Philippines",
+                "Indonesia",
+                "Vietnam",
+                "Ethiopia"
+             ],
+             "labels":[
+                "USA",
+                "UK",
+                "Germany",
+                "India",
+                "China",
+                "Japan",
+                "South Korea",
+                "Australia",
+                "Saudi Arabia",
+                "Philippines",
+                "Indonesia",
+                "Vietnam",
+                "Ethiopia"
+             ],
+             "name":"Country selection: "
+          }
+       },
+       {
+          "name":"Country_2",
+          "value":"United Kingdom",
+          "bind":{
+             "input":"select",
+             "options":[
+                "United States",
+                "United Kingdom",
+                "Germany",
+                "India",
+                "China",
+                "Japan",
+                "South Korea",
+                "Australia",
+                "Saudi Arabia",
+                "Philippines",
+                "Indonesia",
+                "Vietnam",
+                "Ethiopia"
+             ],
+             "labels":[
+                "USA",
+                "UK",
+                "Germany",
+                "India",
+                "China",
+                "Japan",
+                "South Korea",
+                "Australia",
+                "Saudi Arabia",
+                "Philippines",
+                "Indonesia",
+                "Vietnam",
+                "Ethiopia"
+             ],
+             "name":"Country selection: "
+          }
+       }
+    ],
+    "hconcat":[
+       {
+          "data":{
+             "url":"https://raw.githubusercontent.com/30609844/Assignment2/main/data/daily-caloric-supply-derived-from-carbohydrates-protein-and-fat.csv"
+          },
+          "width":250,
+          "height":300,
+          "transform":[
+             {
+                "filter":"datum.Year == year_select"
+             },
+             {
+                "filter":"datum.Entity == Country_1"
+             },
+             {
+                "fold":[
+                   "Animal Protein",
+                   "Plant Protein",
+                   "Fat",
+                   "Carbs"
+                ]
+             }
+          ],
+          "mark":{
+             "type":"arc",
+             "innerRadius":50
+          },
+          "encoding":{
+             "theta":{
+                "field":"value",
+                "type":"quantitative",
+                "aggregate": "sum"
+             },
+             "color":{
+                "field":"key",
+                "type":"nominal",
+                "title":"",
+                "scale":{
+                   "range":[
+                      "#e41a1c",
+                      "#1b9e77",
+                      "#ff7f00",
+                      "#984ea3"
+                   ]
+                },
+                "legend":{
+                   "orient":"top"
+                }
+             },
+             "tooltip":[
+                {
+                   "field":"Entity",
+                   "title":"Country",
+                   "type":"nominal"
+                },
+                {
+                   "field":"key",
+                   "title":"Source"
+                },
+                {
+                   "field":"value",
+                   "title":"Daily Consumption (kcal)"
+                }
+             ]
+          }
+       },
+       {
+          "data":{
+             "url":"https://raw.githubusercontent.com/30609844/Assignment2/main/data/daily-caloric-supply-derived-from-carbohydrates-protein-and-fat.csv"
+          },
+          "width":250,
+          "height":300,
+          "transform":[
+             {
+                "filter":"datum.Year == year_select"
+             },
+             {
+                "filter":"datum.Entity == Country_2"
+             },
+             {
+                "fold":[
+                   "Animal Protein",
+                   "Plant Protein",
+                   "Fat",
+                   "Carbs"
+                ]
+             }
+          ],
+          "mark":{
+             "type":"arc",
+             "innerRadius":50
+          },
+          "encoding":{
+             "theta":{
+                "field":"value",
+                "type":"quantitative",
+                "aggregate": "sum"
+             },
+             "color":{
+                "field":"key",
+                "type":"nominal",
+                "title":"",
+                "scale":{
+                   "range":[
+                      "#e41a1c",
+                      "#1b9e77",
+                      "#ff7f00",
+                      "#984ea3"
+                   ]
+                },
+                "legend":{
+                   "orient":"top"
+                }
+             },
+             "tooltip":[
+                {
+                   "field":"Entity",
+                   "title":"Country",
+                   "type":"nominal"
+                },
+                {
+                   "field":"key",
+                   "title":"Source"
+                },
+                {
+                   "field":"value",
+                   "title":"Daily Consumption (kcal)"
+                }
+             ]
+          }
+       }
+    ]
+ }
