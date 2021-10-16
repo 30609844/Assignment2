@@ -76,6 +76,7 @@
           "datum": {"repeat": "layer"},
           "title": "layer + ",
           "type": "nominal",
+          "scale": {"range": ["#0868ac","#fc8d59"]},
           "legend": {
             "orient": "top"
           }

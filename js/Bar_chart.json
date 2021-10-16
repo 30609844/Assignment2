@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Comparison of diet composition between 2 countries",
+  "title": {
+    "text": "Comparison of diet composition between 2 countries",
+    "anchor": "middle"},
   
   "width": 95,
   "height": 305,
@@ -120,7 +122,7 @@
     "color": {
       "field": "Entity",
       "title": "",
-      "scale": {"range": ["#7570b3", "#1b9e77"]},
+      "scale": {"range": ["#dfc27d", "#1b9e77"]},
       "legend": {
         "orient": "top"
       }

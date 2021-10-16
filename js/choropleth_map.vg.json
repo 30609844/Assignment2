@@ -149,6 +149,10 @@
               "offset": 0
               }
             },
+            "color": {
+              "field": "Obesity",
+              "type": "quantitative"
+            },
             "tooltip": [
               {"field": "Entity", "title": "Country", "type": "nominal"},
               {
@@ -171,7 +175,7 @@
               }
             ]
           },
-          "mark": {"type": "circle"}
+          "mark": {"type": "circle", "opacity": 1, "stroke":"black","strokeWidth": 0.25}
         }
       ]
     }
