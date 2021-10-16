@@ -19,6 +19,26 @@ h1{
    padding: 50px;
    padding-top: 35px;
 }
+.low{
+  background-color: #d0d1e6;
+  stroke: black;
+  stroke-width: 3px;
+}
+.high{
+  color: #1c9099;
+  stroke: black;
+  stroke-width: 3px;
+}
+.obese_text{
+  color: #0868ac;
+  stroke: black;
+  stroke-width: 3px;
+}
+.urban_text{
+  color: #fc8d59;
+  stroke: black;
+  stroke-width: 1px;
+}
 .vis-container{
   width: 100%;
 }
